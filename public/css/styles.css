@@ -106,11 +106,15 @@ footer {
 }
 
 @media (min-width: 37.5em) {  
-  body {
-    margin: 1% 5% 1% 5%;
-    border: solid rgb(1, 176, 211) 5px;
-    border-radius: 1%;
+  #wrapper {
     background-image: url(../images/site/small_check.jpg);
+    width: 100%;
+  }
+  .Inner-frame {
+    margin: 1% 5% 1% 5%;
+    border-radius: 1%;
+    border: solid rgb(1, 176, 211) 5px;
+    background-color: white;
   }
   #homeP {
     display: grid;
