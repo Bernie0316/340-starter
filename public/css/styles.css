@@ -45,20 +45,74 @@ nav {
 }
 
 /* Main */
+main {
+  margin: 10px;
+}
+#hero-greeting, h3 {
+  font-family: "Playfair Display", "Lora", "PT Serif";
+}
 #hero {
   display: grid;
+  justify-items: center;
 }
 .hero-msg {
   grid-column: 2/3;
   grid-row: 3/9;
   color: rgb(1, 176, 211);
-  background-color: rgba(250, 250, 250, 7);
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  padding: 10px;
+  border-radius: 4%;
+}
+#hero-but {
+  width: 130px;
 }
 #hero-img {
   grid-column: 1/11;
   grid-row: 1/11;
+  width: 80%;
+  max-width: 1600px;
 }
+.deloreanUpgrades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.deloreanUpgrades h3 {
+  grid-column: 1/-1;
+}
+.deloreanUpgrades div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.deloreanUpgrades a {
+  color: #0000EE;
+  text-decoration: underline;
+}
+.upgradesIcon {
+  background-color: rgb(1, 176, 211);
+  padding: 1%;
+  padding-left: 20%;
+  padding-right: 20%;
+  border: solid black 1px;
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+}
+
+footer {
+  margin: 10px;
+}
+
 @media (min-width: 37.5em) {  
+  body {
+    margin: 1% 5% 1% 5%;
+    border: solid rgb(1, 176, 211) 5px;
+    border-radius: 1%;
+    border: 20px solid url('../images/site/small_check.jpg');
+    border-image: url('../image/site/small_check.jpg') 30 round;
+  }
   #homeP {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -66,17 +120,9 @@ nav {
   .deloreanUpgrades {
     grid-column: 1/2;
     grid-row: 1/3;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .deloreanUpgrades h3 {
-    grid-column: 1/3;
   }
   .DMCDeloreanReviews {
     grid-column: 2/3;
     grid-row: 1/3;
   }
-}
-@media (max-width: 37.5em) {
-  
 }
