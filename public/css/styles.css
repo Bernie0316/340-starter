@@ -96,7 +96,7 @@ main {
   padding-left: 20%;
   padding-right: 20%;
   border: solid black 1px;
-  width: 200px;
+  width: 100%;
   height: 100px;
   object-fit: contain;
 }
@@ -110,8 +110,7 @@ footer {
     margin: 1% 5% 1% 5%;
     border: solid rgb(1, 176, 211) 5px;
     border-radius: 1%;
-    border: 20px solid url('../images/site/small_check.jpg');
-    border-image: url('../image/site/small_check.jpg') 30 round;
+    background-image: url(../images/site/small_check.jpg);
   }
   #homeP {
     display: grid;
