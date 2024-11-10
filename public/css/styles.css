@@ -58,8 +58,8 @@ main {
 .hero-msg {
   grid-column: 2/3;
   grid-row: 3/9;
-  color: rgb(95, 148, 210);
-  background-color: rgba(0, 0, 0, 0.1);
+  color: #19304D;
+  background-color: #ffffffb3;
   z-index: 1;
   padding: 10px;
   border-radius: 4%;
