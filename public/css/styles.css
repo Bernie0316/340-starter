@@ -58,7 +58,7 @@ main {
 .hero-msg {
   grid-column: 2/3;
   grid-row: 3/9;
-  color: rgb(1, 176, 211);
+  color: rgb(95, 148, 210);
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
   padding: 10px;
@@ -91,7 +91,7 @@ main {
   text-decoration: underline;
 }
 .upgradesIcon {
-  background-color: rgb(1, 176, 211);
+  background-color: rgb(95, 148, 210);
   padding: 1%;
   padding-left: 20%;
   padding-right: 20%;
@@ -106,15 +106,16 @@ footer {
 }
 
 @media (min-width: 37.5em) {  
-  #wrapper {
-    background-image: url(../images/site/small_check.jpg);
-    width: 100%;
+  body {
+    background-image: url(../images/site/checkerboard.jpg);
+    background-repeat: repeat;
+    background-size: 20em 20em;
   }
-  .Inner-frame {
-    margin: 1% 5% 1% 5%;
-    border-radius: 1%;
-    border: solid rgb(1, 176, 211) 5px;
+  #wrapper {
     background-color: white;
+    margin: 1em 5em;
+    border-radius: 1em;
+    border: .25em solid rgb(95, 148, 210);
   }
   #homeP {
     display: grid;

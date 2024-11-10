@@ -3,20 +3,15 @@
     <%- include('../partials/head') %>
 
     <body>
-        <!-- Check bg
-        <div id="warpper"></div> -->
-        <!-- Inner white box with border -->
         <div id="wrapper">
-            <div class="Inner-frame">
-                <%- include("../partials/header") %>
-                <%- include("../partials/navigation") %>
-    
-                <main>
-                    <%- body %>
-                </main>
-    
-                <%- include("../partials/footer") %>
-            </div>
+            <%- include("../partials/header") %>
+            <%- include("../partials/navigation") %>
+
+            <main>
+                <%- body %>
+            </main>
+
+            <%- include("../partials/footer") %>
         </div>
     </body>
 </html>
