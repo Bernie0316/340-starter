@@ -7,8 +7,10 @@ INSERT INTO account (account_firstname, account_lastname, account_email, account
 
 UPDATE account
     SET account_type = 'Admin'
+	WHERE account_firstname = 'Tony' AND account_lastname = 'Stark'
 
 DELETE from account
+WHERE account_firstname = 'Tony' AND account_lastname = 'Stark'
 
 --4 GM Hummer --
 select * from inventory
