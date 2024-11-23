@@ -1,0 +1,2 @@
+in the list 'dependencies' :
+"pg" is a short-hand reference to the node-postgres package that Express can use to talk with a PostgreSQL database.
