@@ -12,6 +12,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const utilities = require("./utilities/")
+const inventoryRoute = require("./routes/inventoryRoute")
 
 /* ***********************
  * View Engine and Templates
@@ -23,14 +24,12 @@ app.set("layout", "./layouts/layout") // not at views root
 /* ***********************
  * Routes
  *************************/
+app.use(express.static("public"))  // 讓 Express 服務靜態檔案
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome)) 
-//   (req, res){
-//   res.render("index", {title: "Home"})
-// })
 app.use(static)
 // Inventory routes
-// app.use("/inv", inventoryRoute)
+app.use("/inv", inventoryRoute)
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
