@@ -29,7 +29,7 @@ select inv_make, inv_model, classification_name FROM inventory i
 WHERE c.classification_name = 'SPORT';
 
 --6 add "/vehicles" --
-select * from inventory
+-- select * from inventory
 UPDATE inventory
 SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
     inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');

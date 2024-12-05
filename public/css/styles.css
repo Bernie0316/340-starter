@@ -152,5 +152,11 @@ footer {
 #inv-display li {
   border: 2px solid lightgray;
   border-radius: 3%;
-  padding: 10px;
+}
+#inv-display a {
+  font-size: 1rem;  
+}
+#inv-display img {
+  object-fit: contain;
+  max-width: 100px;
 }
