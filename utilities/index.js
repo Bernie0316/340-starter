@@ -1,3 +1,4 @@
+const { name } = require("ejs")
 const invModel = require("../models/inventory-model")
 const Util = {}
 
@@ -56,6 +57,47 @@ Util.buildClassificationGrid = async function(data){
         grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
     }
     return grid
+}
+
+/* **************************************
+* Build the inventory view HTML
+* ************************************ */
+Util.buildInventoryDetail = async function(itemData){
+    let itemDetail 
+    if(itemData){
+        itemDetail = '<div id="inv-detail">'
+            itemDetail += '<div id="invDetailPageLeft">'
+                // img
+                itemDetail +=  '<a href="../../inv/detail/'+ itemData.inv_id 
+                + '" title="View ' + itemData.inv_make + ' '+ itemData.inv_model 
+                + 'details"><img src="' + itemData.inv_image 
+                +'" alt="Image of '+ itemData.inv_make + ' ' + itemData.inv_model 
+                +' on CSE Motors" /></a>'
+            itemDetail += '</div>'
+            itemDetail += '<div id="invDetailPagerRight">'
+                // name
+                itemDetail += '<h2>'
+                    itemDetail += '<a href="../../inv/detail/' + itemData.inv_id +'" title="View ' 
+                    + itemData.inv_make + ' ' + itemData.inv_model + ' details">' 
+                    + itemData.inv_make + ' ' + itemData.inv_model + '</a>'
+                itemDetail += '</h2>'
+                // price
+                itemDetail += '<div class="namePrice">'
+                    itemDetail += '<b><span>Price: $</b>' 
+                    + new Intl.NumberFormat('en-US').format(itemData.inv_price) + '</span>'
+                itemDetail += '</div>'
+                // Description
+                itemDetail += '<p><b>Description:</b> ' + itemData.inv_description + '</p>'
+                // color
+                itemDetail += '<p><b>Color:</b> ' + itemData.inv_color + '</p>'
+                // miles
+                itemDetail += '<p><b>Miles:</b> ' + itemData.inv_miles + '</p>'
+            itemDetail += '</div>'
+        itemDetail += '</div>'
+    } else { 
+        itemDetail += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+    }
+    return itemDetail
 }
 
 /* ****************************************

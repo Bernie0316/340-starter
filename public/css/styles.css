@@ -151,12 +151,32 @@ footer {
 }
 #inv-display li {
   border: 2px solid lightgray;
-  border-radius: 3%;
+  border-radius: 6px;
 }
 #inv-display a {
   font-size: 1rem;  
 }
 #inv-display img {
   object-fit: contain;
-  max-width: 100px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 6px;
+}
+@media (max-width: 37.5em) {  
+  #inv-display {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Inventory Detail Pages */
+@media (min-width: 37.5em) {
+  #inv-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+  /* #invDetailPageLeft {
+
+  } */
 }
