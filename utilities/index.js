@@ -77,9 +77,7 @@ Util.buildInventoryDetail = async function(itemData){
             itemDetail += '<div id="invDetailPagerRight">'
                 // name
                 itemDetail += '<h2>'
-                    itemDetail += '<a href="../../inv/detail/' + itemData.inv_id +'" title="View ' 
-                    + itemData.inv_make + ' ' + itemData.inv_model + ' details">' 
-                    + itemData.inv_make + ' ' + itemData.inv_model + '</a>'
+                    itemDetail += itemData.inv_make + ' ' + itemData.inv_model + ' Details'
                 itemDetail += '</h2>'
                 // price
                 itemDetail += '<div class="namePrice">'
@@ -91,7 +89,8 @@ Util.buildInventoryDetail = async function(itemData){
                 // color
                 itemDetail += '<p><b>Color:</b> ' + itemData.inv_color + '</p>'
                 // miles
-                itemDetail += '<p><b>Miles:</b> ' + itemData.inv_miles + '</p>'
+                itemDetail += '<p><b>Miles:</b> ' 
+                    + new Intl.NumberFormat('en-US').format(itemData.inv_miles) + '</p>'
             itemDetail += '</div>'
         itemDetail += '</div>'
     } else { 

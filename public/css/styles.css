@@ -159,7 +159,7 @@ footer {
 #inv-display img {
   object-fit: contain;
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   border-radius: 6px;
 }
 @media (max-width: 37.5em) {  
@@ -170,13 +170,16 @@ footer {
 }
 
 /* Inventory Detail Pages */
+#inv-detail img {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 30px;
+}
 @media (min-width: 37.5em) {
   #inv-detail {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5px;
+    gap: 10px;
   }
-  /* #invDetailPageLeft {
-
-  } */
+  /* #invDetailPageLeft {} */
 }

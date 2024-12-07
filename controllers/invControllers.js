@@ -27,7 +27,7 @@ invCont.buildByInventoryId = async function (req, res, next) {
     const itemData = await invModel.getInventoryByInventoryId(inv_id)
     const itemDetail = await utilities.buildInventoryDetail(itemData)
     let nav = await utilities.getNav()
-    const title = `${itemData.inv_make} ${itemData.inv_model}` 
+    const title = `${itemData.inv_year} ${itemData.inv_make} ${itemData.inv_model}` 
     res.render("./inventory/detail", {
         title,
         nav,
