@@ -13,6 +13,30 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const utilities = require("./utilities/")
 const inventoryRoute = require("./routes/inventoryRoute")
+// Require the Session package and DB connection
+const session = require("express-session")
+const pool = require('./database/')
+
+/* ***********************
+ * Middleware
+ * ************************/
+app.use(session({ // invokes the app.use() function and indicates the session is to be applied.
+  store: new (require('connect-pg-simple')(session))({
+    createTableIfMissing: true,
+    pool,
+  }),
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  name: 'sessionId',  // this is the "name" we are assigning to the unique "id" that will be created for each session.
+}))
+
+// Express Messages Middleware
+app.use(require('connect-flash')()) // requires the connect-flash package, within an app.use function, making it accessible throughout the application.
+app.use(function(req, res, next){ // app.use is applied and a function is passed in as a parameter. The funtion accepts the request, response and next objects as parameters.
+  res.locals.messages = require('express-messages')(req, res)
+  next()
+})
 
 /* ***********************
  * View Engine and Templates
