@@ -200,9 +200,21 @@ footer {
 .from label, .form input, .form button {
   display: block;
 }
+.form input {
+  max-width: 200px;
+  width: 100%;
+}
 #registerArea {
   text-align: center;
 }
 #registerArea a {
   color: black;
+}
+.showPassword-btn {
+  background-color: #383838;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: white;
 }
