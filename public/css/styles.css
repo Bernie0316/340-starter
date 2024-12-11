@@ -183,3 +183,26 @@ footer {
   }
   /* #invDetailPageLeft {} */
 }
+
+/* Login Page */
+#loginForm {
+  padding: 10px;
+  background-color: rgb(95, 148, 210);
+  border-radius: 7px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.form {
+  padding: 10px;
+  border-color: white;
+  border-radius: 3px;
+}
+.from label, .form input, .form button {
+  display: block;
+}
+#registerArea {
+  text-align: center;
+}
+#registerArea a {
+  color: black;
+}
