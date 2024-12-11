@@ -1,0 +1,24 @@
+<!-- Created inside a new folder, within the views folder. The new folder name should match the name in the render function of the controller. -->
+<!-- Be named according to the name in the render function of the controller. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || "Login" %></title>
+<!-- Use the title data value for both the title and h1 elements. -->
+<!-- Have the ability to display a flash message, if one is sent. -->
+<!-- Display a login HTML form that accepts an email address (this will be the username) and password. -->
+<!-- The form should include a button to submit the login credentials. -->
+<!-- Enforcement of the input data does not have to be done at this time. -->
+<!-- Beneath the form should be a link that allows the user to send a URL that would request delivery of a registration view, if they do not yet have an account. Refer to this example: -->
+<!-- Add appropriate CSS to render the view and form professionally. -->
+</head>
+<body>
+    <main>
+        <h1>Login! <%= title || "Login Page" %></h1>
+        <p><%= message || "Login in message test." %></p>
+        <a href="/">Return to Home</a>
+    </main>
+</body>
+</html>

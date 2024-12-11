@@ -16,6 +16,7 @@ const inventoryRoute = require("./routes/inventoryRoute")
 // Require the Session package and DB connection
 const session = require("express-session")
 const pool = require('./database/')
+const accountRoute = require('./routes/accountRoute')
 
 /* ***********************
  * Middleware
@@ -58,6 +59,7 @@ app.use("/inv", inventoryRoute)
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
+app.use("/account", accountRoute)
 
 /* ***********************
 * Express Error Handler
