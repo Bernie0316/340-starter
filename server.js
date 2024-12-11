@@ -48,17 +48,19 @@ app.use(function(req, res, next){ // app.use is applied and a function is passed
 /* ***********************
  * Routes
  *************************/
-// app.use(express.static("public"))  // 讓 Express 服務靜態檔案
+app.use(require("./routes/static"))
 // Index route
-app.use(static)
 app.get("/", utilities.handleErrors(baseController.buildHome)) 
 // Inventory routes
 app.use("/inv", inventoryRoute)
 // Account routes
 app.use("/account", require("./routes/accountRoute"))
 
-
-// File Not Found Route - must be last route in list
+/* ***********************
+ * File Not Found Route - must be last route in list
+ * Place after all other routes
+ * 
+ *************************/
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
