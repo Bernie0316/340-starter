@@ -184,8 +184,8 @@ footer {
   /* #invDetailPageLeft {} */
 }
 
-/* Login Page */
-#loginForm {
+/* Login/Register Page */
+#loginForm, #registerForm {
   padding: 10px;
   background-color: rgb(95, 148, 210);
   border-radius: 7px;
@@ -197,8 +197,15 @@ footer {
   border-color: white;
   border-radius: 3px;
 }
-.from label, .form input, .form button {
+
+.from label, .form input {
   display: block;
+  margin-bottom: 16px;
+}
+.form button {
+  display: block;
+  margin-top: 16px;
+  font-size: 1rem;
 }
 .form input {
   max-width: 200px;
@@ -215,6 +222,6 @@ footer {
   padding: 10px;
   border: none;
   outline: none;
-  border-radius: 10px;
+  border-radius: 20px;
   color: white;
 }
