@@ -2,6 +2,7 @@ const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
 
 const invCont = {}
+const detailCont = {}
 
 /* ***************************
  *  Build inventory by classification view
@@ -34,5 +35,134 @@ invCont.buildByInventoryId = async function (req, res, next) {
         itemDetail,
     })
 }
+
+invCont.triggerError = (req, res, next) => {
+    try {
+        throw new Error('This is an intentional error for testing!');
+    } catch (err) {
+        next(err); 
+    }
+};
+  
+  invCont.showManagement = async function (req, res, next) {
+    let nav = await utilities.getNav()
+  
+    res.render("inventory/management", {
+        title: "Vehicle Management",
+        nav,
+        errors: null
+    })
+  }
+  
+  invCont.showAddClassification = async (req, res) => {
+    const nav = await utilities.getNav()
+    res.render('inventory/add-classification', {
+        title: 'Add Classification',
+        nav,
+        errors: null,
+    })
+  }
+  
+  invCont.addClassification = async (req, res) => {
+    const { classification_name } = req.body;
+    const nav = await utilities.getNav()
+    try {
+      const result = await invModel.addClassification(classification_name);
+      if (result) {
+        req.flash('notice', 'Classification added successfully.');
+        const nav = await utilities.getNav(); // Regenerate navigation
+        res.status(201).render('inventory/management', {
+            title: 'Vehicle Management',
+            nav,
+            errors: null,
+        });
+    } else {
+        req.flash('notice', 'Error: Could not add classification.');
+        res.status(500).render('inventory/add-classification', {
+            title: 'Add Classification',
+            nav,
+            errors: null,
+        });
+    }
+    } catch (err) {
+      console.error('Error adding classification:', err);
+      req.flash('notice', 'An unexpected error occurred.');
+      res.status(500).render('inventory/add-classification', {
+        title: 'Add Classification',
+        nav,
+        errors: null,
+      });
+    }
+};
+  
+invCont.showAddInventory = async (req, res) => {
+    const nav = await utilities.getNav();
+    const classificationList = await utilities.buildClassificationList();
+    res.render("inventory/add-inventory", {
+        title: "Add Inventory Item",
+        nav,
+        classificationList,
+        errors: null,
+    });
+};
+  
+  invCont.addInventory = async (req, res) => {
+    const {
+        classification_id,
+        inv_make,
+        inv_model,
+        inv_year,
+        inv_description,
+        inv_price,
+        inv_miles,
+        inv_image,
+        inv_thumbnail,
+    } = req.body;
+  
+    try {
+        const result = await invModel.addInventory({
+            classification_id,
+            inv_make,
+            inv_model,
+            inv_year,
+            inv_description,
+            inv_price,
+            inv_miles,
+            inv_image,
+            inv_thumbnail,
+        });
+  
+    if (result) {
+        req.flash("notice", "Inventory item added successfully.");
+        const nav = await utilities.getNav();
+        res.status(201).render("inventory/management", {
+            title: "Vehicle Management",
+            nav,
+            errors: null,
+        });
+    } else {
+        req.flash("notice", "Error adding inventory item.");
+        const nav = await utilities.getNav();
+        const classificationList = await utilities.buildClassificationList(classification_id);
+        res.status(500).render("inventory/add-inventory", {
+            title: "Add Inventory Item",
+            nav,
+            classificationList,
+            errors: null,
+        });
+    }
+    } catch (err) {
+        console.error("Error adding inventory item:", err);
+        req.flash("notice", "An unexpected error occurred.");
+        const nav = await utilities.getNav();
+        const classificationList = await utilities.buildClassificationList(classification_id);
+        res.status(500).render("inventory/add-inventory", {
+            title: "Add Inventory Item",
+            nav,
+            classificationList,
+            errors: null,
+        });
+    }
+};
 
 module.exports = invCont
