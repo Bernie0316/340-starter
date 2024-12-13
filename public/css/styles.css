@@ -225,3 +225,10 @@ footer {
   border-radius: 20px;
   color: white;
 }
+/*
+input:required:invalid, input:focus:invalid {
+  /* insert your own styles for invalid form input 
+}
+input:required:valid {
+  /* insert your own styles for valid form input 
+} */

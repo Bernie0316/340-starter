@@ -3,6 +3,8 @@ const express = require("express") // bring Express into scope of file.
 const router = new express.Router()     
 const accountController = require("../controllers/accountController")
 const utilities = require("../utilities")
+const regValidate = require('../utilities/account-validation')
+
 
 /* ****************************************
  *  Deliver login view
@@ -21,5 +23,13 @@ router.get("/Register", utilities.handleErrors(accountController.buildRegister))
  *
  * *************************************** */
 router.post('/register', utilities.handleErrors(accountController.registerAccount))
+
+// Process the registration data
+router.post(
+    "/register",
+    regValidate.registationRules(),
+    regValidate.checkRegData,
+    utilities.handleErrors(accountController.registerAccount)
+)
 
 module.exports = router
