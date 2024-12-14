@@ -185,17 +185,14 @@ footer {
 }
 
 /* Login/Register Page */
-#loginForm, #registerForm {
-  padding: 10px;
-  background-color: rgb(95, 148, 210);
-  border-radius: 7px;
-  margin-left: 5%;
-  margin-right: 5%;
-}
 .form {
   padding: 10px;
   border-color: white;
   border-radius: 3px;
+  background-color: rgb(95, 148, 210);
+  border-radius: 7px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .from label, .form input {
@@ -207,7 +204,7 @@ footer {
   margin-top: 16px;
   font-size: 1rem;
 }
-.form input {
+.form input, textarea {
   max-width: 200px;
   width: 100%;
 }
@@ -232,3 +229,13 @@ input:required:invalid, input:focus:invalid {
 input:required:valid {
   /* insert your own styles for valid form input 
 } */
+
+/* management pages */
+#managementUl {
+  list-style: none;
+}
+#classificationList {
+  max-width: 150px;
+  width: 100%;
+  display: block;
+}

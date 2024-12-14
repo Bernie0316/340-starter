@@ -7,10 +7,14 @@
     <%- messages() %>
     
     <div class="form">
-        <form action="/inv/add-classification" method="POST">
-            <label for="classification_name">Classification Name: 
+        <p>FIELDS IS REQUIRED.</p>
+        <fieldset action="/inv/add-classification" method="POST">
+            <label for="classification_name">Classification Name
+                <br> 
+                <br> 
+                <span>NAME MUST BE ALPHABETIC CHARACTERS ONLY</span>
                 <input type="text" name="classification_name" id="classification_name" pattern="^[^\s\W]+$" required>
             </label>
             <button type="submit">Add Classification</button>
-        </form>
+        </fieldset>
     </div>
