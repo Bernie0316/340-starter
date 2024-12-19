@@ -9,13 +9,15 @@ const inventoryRoute = require("./routes/inventoryRoute")
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
-const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const utilities = require("./utilities/")
 const session = require("express-session")
 const pool = require('./database/')
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
+
+const app = express()
 
 /* ***********************
  * View Engine and Templates
@@ -48,6 +50,9 @@ app.use(function(req, res, next){ // app.use is applied and a function is passed
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+// wo5 learning activity 
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * Routes
