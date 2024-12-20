@@ -185,14 +185,16 @@ footer {
 }
 
 /* Login/Register Page */
-.form {
+form {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+fieldset {
   padding: 10px;
   border-color: white;
   border-radius: 3px;
   background-color: rgb(95, 148, 210);
   border-radius: 7px;
-  margin-left: 5%;
-  margin-right: 5%;
 }
 
 .from label, .form input {
