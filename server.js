@@ -10,13 +10,11 @@ const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 // 匯入 ejs 功能
-const expressLayouts = require("express-ejs-layouts").
+const expressLayouts = require("express-ejs-layouts")
 
 /* ***********************
- * Routes
+ * View Engine and Template
  *************************/
-app.use(static)
-
 app.set("view engine", "ejs")
 // 使用ejs當作網站的模板引擎
 app.use(expressLayouts)
@@ -24,6 +22,11 @@ app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
 // 設定預設的 layout 檔案位置 
 
+/* ***********************
+ * Routes
+ *************************/
+app.use(static)
+// 使用 static 路由處理靜態檔案
 // Index route
 app.get("/", function(req, res) {
   res.render("index", { title: "Home" })
