@@ -4,3 +4,108 @@
 *:after {
   box-sizing: border-box;
 }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+}
+/* --- Header section --- */
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#top-header a {
+  color: black;
+  text-decoration: none;
+}
+.siteName {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* --- Nav section --- */
+nav {
+  background-color: rgb(35, 35, 50);
+  color: white;
+  padding: 10px;
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+.reviews {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* --- Hero Section --- */
+#hero {
+  display: grid;
+  color: rgb(80, 180, 210);
+}
+#hero-img {
+  width: 100%;
+  grid-column: 1/11;
+  grid-row: 1/11;
+  max-width: 1000px;
+}
+#hero-text {
+  grid-column: 2/4;
+  grid-row: 2/4;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 2;
+}
+#hero-btn {
+  background: none;
+  border: none;
+}
+
+/* --- Main Section --- */
+#section1 {
+  grid-column: 1/2;
+}
+#section1Content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem; /* Adjust this value as needed */
+}
+.add-column {
+  text-align: center;
+}
+#section1Content img {
+  width: 100%;
+  height: auto;
+  background-color: rgb(80, 180, 210);
+  padding: 10px;
+  object-fit: contain;
+  aspect-ratio: 2 / 1; 
+  border: black solid 1px;
+}
+
+/* --- Small Screen Section --- */
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url('/images/site/small_check.jpg');
+    background-repeat: repeat;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  #wrapper {
+    background-color: white;
+    border-radius: 10px;
+    border: 5px solid rgb(80, 180, 210);
+    padding: 5px;
+  }
+  /* --- Main Section --- */
+  .index-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  #section2 {
+    grid-column: 2/3;
+  }
+}
