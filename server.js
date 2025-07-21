@@ -11,6 +11,8 @@ const app = express()
 const static = require("./routes/static")
 // 匯入 ejs 功能
 const expressLayouts = require("express-ejs-layouts")
+// 這樣我們就可以使用 baseController 裡面的函數，例如 buildHome()。
+const baseController = require("./controllers/baseController")
 
 /* ***********************
  * View Engine and Template
@@ -28,9 +30,10 @@ app.set("layout", "./layouts/layout") // not at views root
 app.use(static)
 // 使用 static 路由處理靜態檔案
 // Index route
-app.get("/", function(req, res) {
-  res.render("index", { title: "Home" })
-})
+app.get("/", baseController.buildHome)
+// 當有人訪問 /，不要直接 render，而是請 baseController 裡的 buildHome 函數來處理。
+// Inventory routes
+app.use("/inv", inventoryRoute)
 
 /* ***********************
  * Local Server Information
