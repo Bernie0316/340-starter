@@ -13,6 +13,10 @@ const static = require("./routes/static")
 const expressLayouts = require("express-ejs-layouts")
 // 這樣我們就可以使用 baseController 裡面的函數，例如 buildHome()。
 const baseController = require("./controllers/baseController")
+const inventoryRoute = require("./routes/inventoryRoute")
+const utilities = require("./utilities") 
+// 可以不用index.js，因為 Node.js 會自動尋找 index.js 檔案。
+
 
 /* ***********************
  * View Engine and Template
@@ -30,10 +34,31 @@ app.set("layout", "./layouts/layout") // not at views root
 app.use(static)
 // 使用 static 路由處理靜態檔案
 // Index route
-app.get("/", baseController.buildHome)
+app.get("/", utilities.handleErrors(baseController.buildHome))
 // 當有人訪問 /，不要直接 render，而是請 baseController 裡的 buildHome 函數來處理。
 // Inventory routes
 app.use("/inv", inventoryRoute)
+// 報錯路由一定要在路由列表的最底層
+// File Not Found Route - must be last route in list
+app.use(async (req, res, next) => {
+  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
+})
+
+// "Place after all other middleware"
+/* ***********************
+* Express Error Handler
+* Place after all other middleware
+*************************/
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
+  res.render("errors/error", {
+    title: err.status || 'Server Error',
+    message,
+    nav
+  })
+})
 
 /* ***********************
  * Local Server Information
