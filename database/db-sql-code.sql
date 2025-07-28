@@ -57,6 +57,8 @@ VALUES ('Custom'),
 	('Sedan');
 
 
+
+
 -- Modify the "GM Hummer" record to read "a huge interior" rather than "small interiors" using a single query. Explore the PostgreSQL Replace function Do NOT retype the entire description as part of the query.. It needs to be part of an Update query as shown in the code examples of this SQL Reading\ --
 UPDATE inventory
 SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior')
