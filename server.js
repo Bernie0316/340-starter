@@ -16,6 +16,8 @@ const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities") 
 // 可以不用index.js，因為 Node.js 會自動尋找 index.js 檔案。
+// 「爆」錯專用
+const errorRoute = require("./routes/errorRoute");
 
 
 /* ***********************
@@ -43,6 +45,7 @@ app.use("/inv", inventoryRoute)
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
+app.use("/", errorRoute); // 可設定其它 base 路徑
 
 // "Place after all other middleware"
 /* ***********************
