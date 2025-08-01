@@ -27,7 +27,6 @@ body {
 /* --- Nav section --- */
 nav {
   background-color: rgb(35, 35, 50);
-  color: white;
   padding: 10px;
 }
 nav ul {
@@ -35,6 +34,16 @@ nav ul {
   justify-content: space-around;
   align-items: center;
   list-style: none;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
+nav a:hover {
+  background-color: white;
+  color: rgb(35, 35, 50);
+  padding: 10px;
+  border-radius: 10px;
 }
 .reviews {
   margin-bottom: 20px;
@@ -85,6 +94,35 @@ nav ul {
   border: black solid 1px;
 }
 
+/* --- Classification Section --- */
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  list-style: none;
+}
+#inv-display hr {
+  height: 5px;
+  background-color: black;
+}
+#inv-display h2 {
+  font-size: 1.2em;
+}
+
+.inv-item {
+  border: lightgray solid 1px;
+  border-radius: 20px;
+  text-align: center;
+}
+.inv-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* --- Detail Section --- */
+
 /* --- Small Screen Section --- */
 @media screen and (min-width: 768px) {
   body {
@@ -100,7 +138,7 @@ nav ul {
     padding: 5px;
   }
   /* --- Main Section --- */
-  .index-content {
+  .index-content, .detail-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
