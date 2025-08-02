@@ -121,6 +121,20 @@ nav a:hover {
   border-radius: 20px;
 }
 
+/* --- Login Section --- */
+.login-form, #registrationForm {
+  background-color: rgb(50, 71, 92);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  max-width: 400px;
+  text-align: center;
+}
+.login-form a {
+  color: white;
+}
+
 /* --- Detail Section --- */
 
 /* --- Small Screen Section --- */
