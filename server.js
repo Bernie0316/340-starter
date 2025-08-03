@@ -24,7 +24,7 @@ const errorRoute = require("./routes/errorRoute");
 const session = require("express-session")
 const pool = require('./database/')
 const accountRoute = require("./routes/accountRoute")
-
+const bodyParser = require("body-parser")
 
 /* ***********************
  * View Engine and Template
@@ -39,6 +39,7 @@ app.set("layout", "./layouts/layout") // not at views root
 /* ***********************
  * Middleware
  * ************************/
+// week 04
 // 啟用 seession 中間件，每個瀏覽者都可有暫存資料(登入狀態、購物車等) 
 app.use(session({
   // 讓session 資料儲存在 PostgreSQL 資料庫中
@@ -62,6 +63,8 @@ app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 }) // 然後在下一次 HTTP request 中自動將這些訊息傳遞出來，然後就會消失。
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
 /* ***********************
