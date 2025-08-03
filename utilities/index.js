@@ -74,10 +74,10 @@ Util.buildDetailGrid = async function(data){
       grid += "</section>"
       grid += '<section id="section2">'
         grid += `<h2>${data[0].inv_make} ${data[0].inv_model}</h2>`
-        grid += `<p><strong>Price:</strong> $${data[0].inv_price}</p>`
+        grid += `<p><strong>Price:</strong> $${Number(data[0].inv_price).toLocaleString("en-US")}</p>`
         grid += `<p><strong>Description:</strong> ${data[0].inv_description}</p>`
         grid += `<p><strong>Color:</strong> ${data[0].inv_color}</p>`
-        grid += `<p><strong>Miles:</strong> ${data[0].inv_miles}</p>`
+        grid += `<p><strong>Miles:</strong> ${data[0].inv_miles.toLocaleString("en-US")}</p>`
       grid += "</section>"
     grid += '</div>'
     return grid
