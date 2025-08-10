@@ -147,6 +147,16 @@ input:required:valid {
  background-repeat: no-repeat;
 }
 
+#addInventoryForm, #addClassificationForm {
+  background-color: rgb(80, 180, 210);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+}
+
 
 /* --- Detail Section --- */
 

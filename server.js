@@ -25,6 +25,7 @@ const session = require("express-session")
 const pool = require('./database/')
 const accountRoute = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
+const invRoute = require("./routes/inventoryRoute")
 
 /* ***********************
  * View Engine and Template
@@ -81,6 +82,8 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
 app.use("/account", accountRoute)
 app.use("/registration", accountRoute)
+app.use("/inv", invRoute)
+invRoute
 // 報錯路由一定要在路由列表的最底層
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
