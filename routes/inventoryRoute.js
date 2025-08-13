@@ -25,7 +25,7 @@ router.post("/update-inventory",
   invValidate.checkInventoryData,
   invController.updateInventory
 )
-router.post("/update/", utilities.handleErrors((invController.updateInventory))
+router.post("/update/", utilities.handleErrors(invController.updateInventory))
 
 
 module.exports = router;
