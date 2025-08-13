@@ -1,0 +1,16 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<!-- 顯示訊息 -->
+<%- messages() %>
+
+<!-- 帳號管理 -->
+<% if (message && message.length > 0) { %>
+    <div class="flash-message"><%= message %></div>
+<% } %>
+
+<h1>Account Management</h1>
+<p>You're logged in as <%= accountData.account_firstname %> <%= accountData.account_lastname %>.</p>

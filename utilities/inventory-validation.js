@@ -101,4 +101,36 @@ const checkInventoryData = async (req, res, next) => {
   next()
 }
 
-module.exports = { classificationRules, checkClassificationData, inventoryRules, checkInventoryData }
+/* ******************************
+ *  Check data and return to edit view if error
+ * ***************************** */
+const checkUpdateData = async (req, res, next) => {
+  const errors = validationResult(req)
+  const { inv_id, classification_id, make, model, year, description, image, thumbnail, price, miles, color } = req.body
+
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    let classificationSelect = await utilities.buildClassificationList(classification_id)
+    res.render("./inventory/edit-inventory", {
+      title: `Edit ${make} ${model}`, // 跟 controller 裡 deliverEditInventory 的 title 一致
+      nav,
+      classificationSelect,
+      errors: errors.array(),
+      inv_id,
+      classification_id,
+      make,
+      model,
+      year,
+      description,
+      image,
+      thumbnail,
+      price,
+      miles,
+      color
+    })
+    return
+  }
+  next()
+}
+
+module.exports = { classificationRules, checkClassificationData, inventoryRules, checkInventoryData, checkUpdateData }
